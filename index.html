@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Richard Becker</title>
+<meta name="description" content="Portfolio of Richard Becker — bioengineer working across computer vision, fluidics, and instrumentation." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12241c;
+    --ink-soft:#3c4f45;
+    --paper:#f1f3ea;
+    --paper-raised:#e7ebdd;
+    --line:#c9d0bd;
+    --accent:#a86a1f;
+    --accent-strong:#8f5a19;
+    --teal:#1f5c4a;
+    --teal-soft:#e4ede8;
+    --shadow: 0 1px 0 rgba(18,36,28,0.06);
+    --radius: 3px;
+    --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
+    --sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#eee9da;
+      --ink-soft:#b7c2b6;
+      --paper:#0d1712;
+      --paper-raised:#142019;
+      --line:#2a3a30;
+      --accent:#e0a24a;
+      --accent-strong:#f0b662;
+      --teal:#5ea78c;
+      --teal-soft:#16261f;
+      --shadow: 0 1px 0 rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#eee9da;
+    --ink-soft:#b7c2b6;
+    --paper:#0d1712;
+    --paper-raised:#142019;
+    --line:#2a3a30;
+    --accent:#e0a24a;
+    --accent-strong:#f0b662;
+    --teal:#5ea78c;
+    --teal-soft:#16261f;
+    --shadow: 0 1px 0 rgba(0,0,0,0.4);
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:var(--serif);
+    font-weight:600;
+    text-wrap:balance;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--teal);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+  ::selection{background:var(--accent); color:var(--paper);}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:20;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:760px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+  }
+  .topbar-name{font-family:var(--mono); font-size:13px; letter-spacing:.04em; color:var(--ink-soft);}
+  .topbar-nav{display:flex; gap:20px; font-family:var(--mono); font-size:12.5px;}
+  .topbar-nav a{color:var(--ink-soft); text-decoration:none; letter-spacing:.03em;}
+  .topbar-nav a:hover{color:var(--accent);}
+  @media (max-width:560px){ .topbar-nav{gap:12px;} .topbar-name{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:76px 0 56px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  #colonyCanvas{
+    position:absolute; inset:0; width:100%; height:100%;
+    opacity:.55;
+  }
+  .hero-inner{position:relative; z-index:1;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 14px;
+  }
+  .hero h1{font-size:clamp(2.6rem, 6vw, 4.1rem); line-height:1.02; letter-spacing:-0.01em;}
+  .hero .role{
+    font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(1.15rem,2.6vw,1.5rem); color:var(--ink-soft); margin-top:10px;
+  }
+  .hero p.lede{
+    max-width:56ch; margin:22px 0 0; color:var(--ink-soft); font-size:1.03rem;
+  }
+  .hero-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .btn{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.03em;
+    padding:9px 16px; border-radius:var(--radius);
+    text-decoration:none; border:1px solid var(--line);
+    color:var(--ink); background:var(--paper-raised);
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent-strong);}
+  .btn.primary{background:var(--teal); border-color:var(--teal); color:#f4f7f2;}
+  .btn.primary:hover{background:var(--accent); border-color:var(--accent); color:var(--paper);}
+
+  /* ---------- sections ---------- */
+  section{padding:52px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:26px;}
+  .section-index{font-family:var(--mono); font-size:12.5px; color:var(--accent);}
+  .section-head h2{font-size:1.5rem;}
+
+  .statement{font-family:var(--serif); font-size:1.2rem; line-height:1.5; color:var(--ink); max-width:58ch;}
+
+  /* entries */
+  .entry{padding:20px 0; border-top:1px solid var(--line);}
+  .entry:first-child{border-top:none; padding-top:0;}
+  .entry-head{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;
+  }
+  .entry-title{font-family:var(--serif); font-weight:600; font-size:1.15rem;}
+  .entry-org{color:var(--teal); font-weight:600;}
+  .entry-date{font-family:var(--mono); font-size:12px; color:var(--ink-soft); white-space:nowrap;}
+  .entry ul{margin:12px 0 0; padding-left:1.1em;}
+  .entry li{margin:6px 0; color:var(--ink-soft);}
+  .entry li::marker{color:var(--accent);}
+
+  /* projects accordion */
+  .project{
+    border:1px solid var(--line); border-radius:var(--radius);
+    background:var(--paper-raised);
+    margin-top:14px;
+  }
+  .project:first-of-type{margin-top:0;}
+  .project summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:baseline; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    padding:16px 20px;
+  }
+  .project summary::-webkit-details-marker{display:none;}
+  .project-title{font-family:var(--serif); font-weight:600; font-size:1.05rem; color:var(--ink);}
+  .project-date{font-family:var(--mono); font-size:12px; color:var(--ink-soft); white-space:nowrap;}
+  .chevron{
+    width:9px; height:9px; margin-left:auto;
+    border-right:1.5px solid var(--accent); border-bottom:1.5px solid var(--accent);
+    transform:rotate(45deg); transition:transform .18s ease;
+  }
+  .project[open] .chevron{transform:rotate(-135deg);}
+  .project-body{
+    padding:0 20px 20px; border-top:1px solid var(--line);
+  }
+  .project-body p{margin:16px 0 0; color:var(--ink-soft); font-size:.95rem;}
+  .project-body ul{margin:14px 0 0; padding-left:1.1em;}
+  .project-body li{margin:6px 0; color:var(--ink-soft);}
+  .project-body li::marker{color:var(--accent);}
+  .project-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;}
+
+  .feature-stats{display:flex; flex-direction:column; gap:14px; justify-content:center;}
+  .project-stats{flex-direction:row; flex-wrap:wrap; gap:28px; margin-top:18px;}
+  .stat{font-family:var(--mono);}
+  .stat .num{font-size:1.6rem; color:var(--accent-strong); display:block; line-height:1;}
+  .stat .label{font-size:11.5px; color:var(--ink-soft); letter-spacing:.02em;}
+
+  /* skills */
+  .skill-groups{display:grid; grid-template-columns:1fr; gap:22px;}
+  @media (min-width:640px){ .skill-groups{grid-template-columns:1fr 1fr;} }
+  .skill-group h3{
+    font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-soft); font-weight:500; margin-bottom:10px;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:7px;}
+  .chip{
+    font-family:var(--mono); font-size:12px; padding:5px 10px;
+    border:1px solid var(--line); border-radius:2px; color:var(--ink-soft);
+    background:var(--paper-raised);
+  }
+
+  /* two-col grid for edu / pubs+awards */
+  .grid2{display:grid; grid-template-columns:1fr; gap:34px;}
+  @media (min-width:640px){ .grid2{grid-template-columns:1fr 1fr;} }
+  .sub h3{font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); font-weight:500; margin-bottom:12px;}
+  .sub ul{list-style:none; margin:0; padding:0;}
+  .sub li{padding:9px 0; border-top:1px solid var(--line); font-size:.93rem; color:var(--ink-soft);}
+  .sub li:first-child{border-top:none;}
+  .sub li strong{color:var(--ink); font-weight:600;}
+
+  /* contact / footer */
+  .contact-inner{display:flex; flex-direction:column; gap:18px;}
+  .contact h2{font-size:1.9rem;}
+  .contact p{color:var(--ink-soft); max-width:52ch;}
+  footer{
+    padding:26px 0 46px;
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-soft);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  @media print{
+    .topbar, #colonyCanvas, .hero-links{display:none !important;}
+    body{background:#fff; color:#000;}
+    section{break-inside:avoid; border-color:#ccc;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    #colonyCanvas{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-name">RICHARD BECKER — BIOENGINEER</span>
+    <nav class="topbar-nav">
+      <a href="#work">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Capabilities</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <canvas id="colonyCanvas" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Bioengineering · San Jose Bay Area</p>
+    <h1>Richard Becker</h1>
+    <p class="role">Building the instruments and pipelines that make biology measurable</p>
+    <p class="lede">Bioengineering graduate working across computer vision, microfluidic design, and embedded instrumentation — currently building image analysis tools for open-source microbial phenotyping research.</p>
+    <div class="hero-links">
+      <a class="btn primary" href="mailto:becker.richardn@gmail.com">Email</a>
+      <a class="btn" href="https://www.linkedin.com/in/richardnbecker" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/RNBecker-bien" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <div class="section-head"><span class="section-index">01</span><h2>Profile</h2></div>
+    <p class="statement">I work at the intersection of software and wet-lab biology — writing the computer vision pipelines that turn a photograph of a petri dish into data, modeling the fluid dynamics inside a microfluidic chip in COMSOL, and building the embedded control loops that keep an instrument honest. I like problems where the output is something you can point at: a working simulation, a new pipeline, a device on the bench.</p>
+  </section>
+
+  <section id="work">
+    <div class="section-head"><span class="section-index">02</span><h2>Research &amp; Experience</h2></div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <div class="entry-title">Undergraduate Research Assistant</div>
+          <div class="entry-org">University of California, Riverside — Dept. of Chemical &amp; Environmental Engineering</div>
+        </div>
+        <div class="entry-date">Sept 2024 – Present</div>
+      </div>
+      <ul>
+        <li>Developed computer vision pipelines (Python, ImageJ) for <em>Phenotypic</em>, an open-source microbial phenotyping framework, including a 200+ image ground-truth segmentation dataset spanning multiple fungal species.</li>
+        <li>Improved colony detection accuracy roughly 40% over SGATools and Iris through dataset curation, parameter optimization, and benchmarking.</li>
+        <li>Contributing LLM-assisted parameter optimization — using Claude Code to automate image-processing workflow configuration.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <div class="entry-title">Treasurer</div>
+          <div class="entry-org">Pre-Medicine Student Alliance, UC Riverside</div>
+        </div>
+        <div class="entry-date">Nov 2022 – Jun 2024</div>
+      </div>
+      <ul>
+        <li>Managed organizational budgeting, fundraising, and financial records.</li>
+        <li>Coordinated logistics for community outreach initiatives serving senior and unhoused populations.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head"><span class="section-index">03</span><h2>Projects</h2></div>
+
+    <details class="project" open>
+      <summary>
+        <span class="project-title">Phenotypic — open-source microbial phenotyping</span>
+        <span class="project-date">2024 – Present</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p>A modular Python framework for high-throughput colony segmentation and phenotyping, built to replace closed, less-accurate tools like SGATools and Iris. My contribution spans dataset construction, computer vision pipeline design, and automated parameter tuning — with a paper in preparation (Nguyen, Ottum, Becker, et al.).</p>
+        <div class="feature-stats project-stats">
+          <div class="stat"><span class="num">200+</span><span class="label">annotated ground-truth images</span></div>
+          <div class="stat"><span class="num">~40%</span><span class="label">accuracy gain vs. SGATools / Iris</span></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="skills">
+    <div class="section-head"><span class="section-index">04</span><h2>Capabilities</h2></div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Programming &amp; Data</h3>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">pandas</span>
+          <span class="chip">OpenCV</span><span class="chip">scikit-image</span><span class="chip">matplotlib</span>
+          <span class="chip">MATLAB</span><span class="chip">Git / GitHub</span><span class="chip">JMP</span><span class="chip">Minitab</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Fluidics &amp; Modeling</h3>
+        <div class="chips">
+          <span class="chip">COMSOL Multiphysics</span><span class="chip">Laminar flow</span>
+          <span class="chip">Species transport</span><span class="chip">Porous media</span>
+          <span class="chip">Microfluidic chip design</span><span class="chip">Diffusion gradients</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Instrumentation &amp; Control</h3>
+        <div class="chips">
+          <span class="chip">Arduino</span><span class="chip">Raspberry Pi</span>
+          <span class="chip">Closed-loop feedback</span><span class="chip">Solenoid valve control</span>
+          <span class="chip">Sensor calibration</span><span class="chip">LabVIEW</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Laboratory Techniques</h3>
+        <div class="chips">
+          <span class="chip">ImageJ / FIJI</span><span class="chip">PCR</span><span class="chip">Cell culture</span>
+          <span class="chip">DNA purification</span><span class="chip">Gel electrophoresis</span>
+          <span class="chip">Chromatography</span><span class="chip">Sanger sequencing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head"><span class="section-index">05</span><h2>Education &amp; Record</h2></div>
+    <div class="grid2">
+      <div class="sub">
+        <h3>Education</h3>
+        <ul>
+          <li><strong>BS, Bioengineering</strong> — University of California, Riverside<br>2022 – 2026<br>Fluid Dynamics, Bioinstrumentation, Control Systems, Biomechanics, Tissue Engineering, Medical Diagnostics, Biomedical Imaging</li>
+        </ul>
+        <h3 style="margin-top:22px;">Certifications</h3>
+        <ul>
+          <li>MATLAB Onramp — MathWorks</li>
+          <li>Minitab Beginner Certification — AIGPE</li>
+          <li>UCR Library Summer Robotics Camp</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h3>Awards</h3>
+        <ul>
+          <li>Dean's Honors List — UC Riverside<br>Winter 2025, Spring 2025, Fall 2025</li>
+        </ul>
+        <h3 style="margin-top:22px;">Publications</h3>
+        <ul>
+          <li>Nguyen, A., Ottum, E., <strong>Becker, R.</strong>, et al. (2026, in preparation). <em>Phenotypic: A Modular Python Image Analysis Framework for Microbial Phenotyping.</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="section-head"><span class="section-index">06</span><h2>Get in touch</h2></div>
+    <p>Looking for R&amp;D and engineering roles in biomedical devices, diagnostics, genomics, and adjacent instrumentation-heavy fields — open to robotics and hardware-focused work outside biomedical too.</p>
+    <div class="hero-links" style="margin-top:6px;">
+      <a class="btn primary" href="mailto:becker.richardn@gmail.com">becker.richardn@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/richardnbecker" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/RNBecker-bien" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Richard Becker</span>
+  <span>Salinas, California</span>
+</footer>
+
+<script>
+(function(){
+  var canvas = document.getElementById('colonyCanvas');
+  if(!canvas) return;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion) return;
+  var ctx = canvas.getContext('2d');
+  var hero = canvas.parentElement;
+  var W, H, dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function colors(){
+    var cs = getComputedStyle(document.documentElement);
+    return {
+      accent: cs.getPropertyValue('--accent').trim(),
+      teal: cs.getPropertyValue('--teal').trim()
+    };
+  }
+
+  function resize(){
+    W = hero.clientWidth; H = hero.clientHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  // Diffusion-limited colony growth: seeds spawn and expand as soft radial blooms,
+  // echoing bacterial/fungal colony growth on an agar plate.
+  var colonies = [];
+  function seed(){
+    var palette = colors();
+    var useAccent = Math.random() > 0.5;
+    colonies.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: 0,
+      maxR: 40 + Math.random() * 90,
+      speed: 0.12 + Math.random() * 0.22,
+      color: useAccent ? palette.accent : palette.teal,
+      alpha: 0.10 + Math.random() * 0.10
+    });
+  }
+
+  for(var i=0;i<7;i++){ seed(); }
+
+  var lastSeed = 0;
+  function tick(t){
+    ctx.clearRect(0,0,W,H);
+    for(var i=colonies.length-1;i>=0;i--){
+      var c = colonies[i];
+      c.r += c.speed;
+      var fade = Math.max(0, 1 - c.r / c.maxR);
+      ctx.beginPath();
+      var grad = ctx.createRadialGradient(c.x,c.y,0,c.x,c.y,Math.max(c.r,0.1));
+      grad.addColorStop(0, c.color);
+      grad.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad;
+      ctx.globalAlpha = c.alpha * fade;
+      ctx.arc(c.x, c.y, Math.max(c.r,0.1), 0, Math.PI*2);
+      ctx.fill();
+      if(c.r >= c.maxR) colonies.splice(i,1);
+    }
+    ctx.globalAlpha = 1;
+    if(t - lastSeed > 900 && colonies.length < 9){
+      seed();
+      lastSeed = t;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  requestAnimationFrame(tick);
+})();
+</script>
+
+</body>
+</html>
