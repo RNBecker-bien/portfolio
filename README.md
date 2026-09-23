@@ -1,2 +1,2 @@
 # Richard Becker's Portfolio
-This repo contains all of the information about my projects, capabilities, and education.
+This website contains all of the information about my projects, capabilities, and contributions.
