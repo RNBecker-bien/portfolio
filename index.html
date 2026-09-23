@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
 <!doctype html>
 <html lang="en">
 <head>
@@ -237,9 +238,10 @@
   <div class="topbar-inner">
     <span class="topbar-name">RICHARD BECKER — BIOENGINEER</span>
     <nav class="topbar-nav">
-      <a href="#work">Research</a>
+      <a href="#about">Profile</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#skills">Capabilities</a>
+      <a href="#work">Research</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -253,11 +255,6 @@
     <h1>Richard Becker</h1>
     <p class="role">Building the instruments and pipelines that make biology measurable</p>
     <p class="lede">Bioengineering graduate working across computer vision, microfluidic design, and embedded instrumentation — currently building image analysis tools for open-source microbial phenotyping research.</p>
-    <div class="hero-links">
-      <a class="btn primary" href="mailto:becker.richardn@gmail.com">Email</a>
-      <a class="btn" href="https://www.linkedin.com/in/richardnbecker" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="btn" href="https://github.com/RNBecker-bien" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
   </div>
 </header>
 
@@ -269,7 +266,7 @@
   </section>
 
   <section id="skills">
-    <div class="section-head"><span class="section-index">04</span><h2>Capabilities</h2></div>
+    <div class="section-head"><span class="section-index">02</span><h2>Capabilities</h2></div>
     <div class="skill-groups">
       <div class="skill-group">
         <h3>Programming &amp; Data</h3>
@@ -305,9 +302,138 @@
       </div>
     </div>
   </section>
-  
+
+  <section id="projects">
+    <div class="section-head"><span class="section-index">03</span><h2>Projects</h2></div>
+
+    <details class="project">
+      <summary>
+        <span class="project-title">Cell Culture Incubator and Stress Simulator</span>
+        <span class="project-date">Sept 2025 – Jun 2026</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p><strong>UCR Bioengineering Capstone, 5-member team.</strong> Designed and fabricated a functional MVP mammalian cell culture incubator with tri-gas (CO2, O2, N2) flow regulation, programmable light emission, and TEC-based temperature control.</p>
+        <ul>
+          <li>Scaled operational temperature range from 25°C to 50°C through iterative hardware optimization: a second TEC1-12706 thermoelectric module, an expanded heatsink and fan assembly, and a copper heat spreader for improved thermal distribution.</li>
+          <li>Developed embedded control software on an Arduino Mega master-slave architecture with a physical LCD and custom D-pad UI, logging real-time temperature, humidity, CO2, O2, active protocol identity, and protocol time remaining.</li>
+          <li>Built a Python and MATLAB data analysis pipeline to statistically evaluate system performance and drive iterative hardware and software improvements.</li>
+          <li>Presented a poster at the senior design showcase covering the system's successes, drawbacks, and future work.</li>
+        </ul>
+        <div class="feature-stats project-stats">
+          <div class="stat"><span class="num">25–50°C</span><span class="label">scaled operational range</span></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="project">
+      <summary>
+        <span class="project-title">Microfluidic Device Design and Tumor-on-a-Chip Modeling</span>
+        <span class="project-date">Sept 2025 – Dec 2025</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p><strong>UCR Medical Diagnostics.</strong> Designed and fabricated a two-inlet, single-outlet microfluidic chip and characterized its laminar flow behavior and diffusion gradient formation using colored-liquid flow visualization, demonstrating controlled concentration mixing across the channel.</p>
+        <ul>
+          <li>Developed a COMSOL Multiphysics model of a tumor-on-a-chip device with two-inlet asymmetric diffusion-dominated species transport in brain tumor microenvironments.</li>
+          <li>Analyzed velocity magnitude and concentration profiles across the chip geometry to evaluate drug accessibility in poorly-perfused tumor regions, identifying diffusion as the dominant transport mechanism limiting drug delivery under low-flow conditions.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="project">
+      <summary>
+        <span class="project-title">Analytical Instrument Calibration and Statistical Data Analysis</span>
+        <span class="project-date">Jan 2026 – Mar 2026</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p><strong>UCR Analytical Chemistry.</strong> Calibrated pH meter probes, a UV/Vis spectrometer, and volumetric glassware against certified reference standards; established and documented calibration procedures and acceptance criteria for each instrument in accordance with Good Laboratory Practices.</p>
+        <ul>
+          <li>Performed Tukey outlier analysis in JMP on experimental datasets, applying statistical significance testing to identify non-conforming data points and generate documented evidence supporting each data integrity decision.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="project">
+      <summary>
+        <span class="project-title">Gene-to-Protein Expression and QC Analysis</span>
+        <span class="project-date">Sept 2024 – Dec 2024</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p><strong>UCR Biotechnology Lab (BIEN155).</strong> Transformed pET28b-YPet-Ubc9 plasmid into E. coli BL21(DE3) via electroporation; validated the transformation by restriction enzyme digest and PCR, confirming a ~1.2 kb insert against a ~5.0 kb vector on gel electrophoresis.</p>
+        <ul>
+          <li>Performed Sanger sequencing and bioinformatics sequence alignment to classify constructs as wild-type, contaminated, or mutant, identifying point mutations at base pairs 991 and 1044.</li>
+          <li>Expressed recombinant His-tagged YPet-Ubc9 via IPTG induction and purified it using Ni-NTA affinity chromatography following probe sonication cell lysis.</li>
+          <li>Quantified protein concentration via Bradford assay and assessed purity by SDS-PAGE, confirming the expected ~44 kDa band.</li>
+          <li>Validated protein-protein interaction between CyPet-SUMO1 and YPet-Ubc9 using FRET spectroscopy across 12 concentration pairs, identifying optimal binding signal at 1 μM CyPet / 100 μM YPet.</li>
+        </ul>
+        <div class="feature-stats project-stats">
+          <div class="stat"><span class="num">R² &gt; 0.99</span><span class="label">Bradford standard curve</span></div>
+          <div class="stat"><span class="num">~65%</span><span class="label">purity at ~44 kDa</span></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="project">
+      <summary>
+        <span class="project-title">Parametric Fluid Flow Characterization</span>
+        <span class="project-date">Sept 2024 – Mar 2025</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p><strong>UCR, 4-person course group project.</strong> Developed parametric COMSOL Multiphysics models to characterize airflow and hepatic blood flow under controlled variable conditions, comparing healthy and disease states.</p>
+        <ul>
+          <li>Modeled airflow velocity through a healthy versus a mucosal-lined respiratory system, showing how mucosal accumulation narrows airways and impairs oxygen delivery.</li>
+          <li>Compared surface velocity in healthy versus fibrotic liver lobules, showing that scar tissue reduces flow uniformity and increases stagnation.</li>
+          <li>Applied experimental design methodology to isolate and quantify the impact of individual variables on system performance.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="project">
+      <summary>
+        <span class="project-title">DNA to Amino Acid Sequence Modeling</span>
+        <span class="project-date">Sept 2024 – Dec 2024</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p><strong>UCR.</strong> Used MATLAB to model the coagulation cascade and simulate thrombin formation, translating DNA sequences into amino acid sequences with computed molecular weight and isoelectric point.</p>
+      </div>
+    </details>
+
+    <details class="project">
+      <summary>
+        <span class="project-title">PicarX AI Self-Driving Robot Car</span>
+        <span class="project-date">Jun 2024 – Jul 2024</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p><strong>UCR.</strong> Assembled and programmed a SunFounder PicarX robot car using a Raspberry Pi and Python, implementing autonomous navigation algorithms for line following, edge detection, color tracking, and obstacle avoidance.</p>
+        <ul>
+          <li>Gained foundational hands-on experience in hardware-software integration for autonomous systems, directly informing a long-term career focus in robotics.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="project">
+      <summary>
+        <span class="project-title">Low-Cost Joystick-LCD Interface for Patient Communication</span>
+        <span class="project-date">Sept 2023 – Dec 2023</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p><strong>UCR.</strong> Designed and prototyped a highly accessible, small-scale Arduino-based patient communication device with a joystick and LCD screen, enabling real-time character selection to facilitate hypothetical medical patient communication.</p>
+        <ul>
+          <li>Handled code generation, circuitry, project fabrication, prototyping, and troubleshooting.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
   <section id="work">
-    <div class="section-head"><span class="section-index">02</span><h2>Research &amp; Experience</h2></div>
+    <div class="section-head"><span class="section-index">04</span><h2>Research &amp; Experience</h2></div>
 
     <div class="entry">
       <div class="entry-head">
@@ -337,25 +463,6 @@
         <li>Coordinated logistics for community outreach initiatives serving senior and unhoused populations.</li>
       </ul>
     </div>
-  </section>
-
-  <section id="projects">
-    <div class="section-head"><span class="section-index">03</span><h2>Projects</h2></div>
-
-    <details class="project" open>
-      <summary>
-        <span class="project-title">Phenotypic — open-source microbial phenotyping</span>
-        <span class="project-date">2024 – Present</span>
-        <span class="chevron" aria-hidden="true"></span>
-      </summary>
-      <div class="project-body">
-        <p>A modular Python framework for high-throughput colony segmentation and phenotyping, built to replace closed, less-accurate tools like SGATools and Iris. My contribution spans dataset construction, computer vision pipeline design, and automated parameter tuning — with a paper in preparation (Nguyen, Ottum, Becker, et al.).</p>
-        <div class="feature-stats project-stats">
-          <div class="stat"><span class="num">200+</span><span class="label">annotated ground-truth images</span></div>
-          <div class="stat"><span class="num">~40%</span><span class="label">accuracy gain vs. SGATools / Iris</span></div>
-        </div>
-      </div>
-    </details>
   </section>
 
   <section id="education">
@@ -480,3 +587,5 @@
 
 </body>
 </html>
+
+</body></html>
